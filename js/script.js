@@ -43,7 +43,22 @@ container.innerHTML += `
 <div class="review-card">
 
 
-<h3>${review.name}</h3>
+<div class="review-header">
+
+
+<h3>
+${review.name}
+</h3>
+
+
+<span>
+${new Date(review.created_at).toLocaleDateString()}
+</span>
+
+
+</div>
+
+
 
 
 <div class="stars">
@@ -53,11 +68,14 @@ ${"⭐".repeat(review.rating)}
 </div>
 
 
+
+
 <p>
 
 ${review.review}
 
 </p>
+
 
 
 </div>
@@ -78,6 +96,7 @@ ${review.review}
 
 
 
+
 async function submitReview(){
 
 
@@ -89,9 +108,7 @@ const name = document
 
 
 
-const rating = document
-.getElementById("review-rating")
-.value;
+const rating = document.querySelector('input[name="rating"]:checked')?.value;
 
 
 
@@ -104,7 +121,8 @@ const review = document
 
 
 
-if(!name || !review){
+
+if(!name || !review || !rating){
 
 
 alert("Please fill all details");
@@ -118,7 +136,7 @@ return;
 
 
 
-// create token for this browser
+
 
 let token = localStorage.getItem("review_token");
 
@@ -134,6 +152,7 @@ localStorage.setItem("review_token", token);
 
 
 }
+
 
 
 
@@ -167,7 +186,6 @@ review_token:token
 
 
 
-
 if(error){
 
 
@@ -193,11 +211,16 @@ alert("Review submitted successfully ✅");
 
 
 
-
 document.getElementById("review-name").value="";
 
 
 document.getElementById("review-message").value="";
+
+
+
+document
+.querySelectorAll('input[name="rating"]')
+.forEach(star => star.checked = false);
 
 
 
@@ -208,7 +231,6 @@ loadReviews();
 
 
 }
-
 
 
 
