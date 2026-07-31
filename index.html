@@ -19,19 +19,25 @@
 
 <body>
 
+
 <section class="home">
+
 
 <div class="container">
 
+
 <div class="left">
+
 
 <div class="profile">
 <img src="assets/images/profile.png" alt="Swapnil">
 </div>
 
+
 <h2>About <span>me.</span></h2>
 
 <div class="line"></div>
+
 
 <p>
 Hi, I'm <span>Swapnil Singh Solanki.</span>
@@ -40,102 +46,168 @@ I love learning new things and gain experiences,
 Abhi new ideas pe kam chalu he bhidu.
 </p>
 
+
 <div class="social">
 
+
 <a href="https://www.instagram.com/swapnilsingh.06/" target="_blank" rel="noopener noreferrer">
+
 <i class="fa-brands fa-instagram"></i>
+
 <span>Instagram</span>
+
 <small>@swapnilsingh.06</small>
+
 </a>
+
+
 
 <a href="https://www.snapchat.com/add/swapnilsingh04" target="_blank" rel="noopener noreferrer">
+
 <i class="fa-brands fa-square-snapchat"></i>
+
 <span>Snapchat</span>
+
 <small>@swapnilsingh04</small>
+
 </a>
 
+
+
 <a href="#">
+
 <i class="fa-brands fa-github"></i>
+
 <span>GitHub</span>
+
 <small>@comingsoon</small>
+
 </a>
+
+
 
 <a href="#">
+
 <i class="fa-brands fa-x-twitter"></i>
+
 <span>X</span>
+
 <small>@comingsoon</small>
+
 </a>
 
-</div>
 
 </div>
+
+
+</div>
+
+
+
 
 <div class="right">
 
+
+
 <a class="card" href="#">
 
+
 <div class="icon">
+
 <i class="fa-solid fa-camera"></i>
+
 </div>
+
 
 <div>
 Gallery
 </div>
 
+
 <span>
+
 <i class="fa-solid fa-arrow-right"></i>
+
 </span>
+
 
 </a>
 
+
+
+
+
 <a class="card" href="#">
 
+
 <div class="icon">
+
 <i class="fa-solid fa-share-nodes"></i>
+
 </div>
+
 
 <div>
 Social Media
 </div>
 
+
 <span>
+
 <i class="fa-solid fa-arrow-right"></i>
+
 </span>
+
 
 </a>
 
-</div>
+
 
 </div>
+
+
+
+</div>
+
+
+
+
+<!-- REVIEWS SECTION -->
+
+<div class="reviews-section">
+
+
+<h2>Visitor <span>Reviews.</span></h2>
+
+
+<div class="line"></div>
+
+
+
+<div id="reviews-list">
+
+Loading reviews...
+
+</div>
+
+
+
+</div>
+
+
 
 </section>
 
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-const SUPABASE_URL = "https://zmxcpohtuwucnotmjphx.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_WtTin4Rtr4M2NXclZvaNKQ_eK42XCTJ";
+<script src="js/supabase.js"></script>
 
-const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
-);
+<script src="js/script.js"></script>
 
-async function testConnection() {
-  const { data, error } = await db
-    .from("reviews")
-    .select("*");
-
-  if (error) {
-    console.error(error);
-  } else {
-    console.log("✅ Connected");
-    console.log(data);
-  }
-}
-
-testConnection();
-</script>
 
 </body>
 
