@@ -3,6 +3,7 @@ const stars = document.querySelectorAll(".stars-input span");
 const ratingInput = document.getElementById("review-rating");
 
 
+
 // STAR HOVER + CLICK SYSTEM
 
 stars.forEach(star => {
@@ -57,6 +58,7 @@ s.classList.remove("hover");
 
 
 
+
 star.addEventListener("click", function(){
 
 
@@ -98,12 +100,20 @@ s.classList.remove("active");
 
 
 
+
+
+
+// LOAD REVIEWS
+
 async function loadReviews() {
 
 
 const { data, error } = await db
+
 .from("reviews")
+
 .select("*")
+
 .order("created_at", { ascending: false });
 
 
@@ -117,7 +127,6 @@ console.error("❌ Reviews Error:", error);
 return;
 
 }
-
 
 
 
@@ -148,9 +157,37 @@ container.innerHTML = "";
 
 
 
+const myToken = localStorage.getItem("review_token");
+
+
+
+
+
+
 
 data.forEach(review => {
 
+
+
+let deleteButton = "";
+
+
+
+if(review.review_token === myToken){
+
+
+deleteButton = `
+
+<button class="delete-review"
+onclick="deleteReview('${review.id}')">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+`;
+
+}
 
 
 container.innerHTML += `
@@ -209,6 +246,12 @@ ${review.review}
 
 
 
+${deleteButton}
+
+
+
+
+
 </div>
 
 
@@ -234,6 +277,81 @@ ${review.review}
 
 
 
+// DELETE REVIEW
+
+async function deleteReview(id){
+
+
+
+const confirmDelete = confirm(
+"Delete this review?"
+);
+
+
+
+if(!confirmDelete){
+
+return;
+
+}
+
+
+
+
+
+const { error } = await db
+
+.from("reviews")
+
+.delete()
+
+.eq("id", id);
+
+
+
+
+
+
+if(error){
+
+
+console.error("❌ Delete Error:", error);
+
+
+alert(error.message);
+
+
+return;
+
+
+}
+
+
+
+
+
+
+alert("Review deleted ✅");
+
+
+
+loadReviews();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// SUBMIT REVIEW
 
 async function submitReview(){
 
@@ -281,18 +399,18 @@ const review = document
 
 
 
+
 if(!name || !review || !rating){
 
 
 
 alert("Please fill all details");
 
+
 return;
 
 
 }
-
-
 
 
 
@@ -358,8 +476,6 @@ review_token:token
 
 
 
-
-
 if(error){
 
 
@@ -373,7 +489,6 @@ return;
 
 
 }
-
 
 
 
@@ -402,6 +517,7 @@ ratingInput.value="";
 
 
 
+
 stars.forEach(star => {
 
 
@@ -409,7 +525,6 @@ star.classList.remove("active");
 
 
 });
-
 
 
 
