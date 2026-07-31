@@ -405,3 +405,7 @@ document
 document
 .getElementById("prev-btn")
 .addEventListener("click",prevImage);
+
+document
+.getElementById("image-viewer")
+.style.display="none";
