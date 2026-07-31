@@ -10,6 +10,7 @@ const ratingInput = document.getElementById("review-rating");
 
 
 
+
 // STAR HOVER + CLICK SYSTEM
 
 stars.forEach(star => {
@@ -35,7 +36,6 @@ s.classList.remove("hover");
 
 }
 
-
 });
 
 
@@ -50,15 +50,12 @@ star.addEventListener("mouseout", function(){
 
 stars.forEach(s => {
 
-
 s.classList.remove("hover");
 
-
 });
 
 
 });
-
 
 
 
@@ -108,7 +105,6 @@ s.classList.remove("active");
 
 
 
-
 // LOAD REVIEWS
 
 async function loadReviews() {
@@ -120,7 +116,7 @@ const { data, error } = await db
 
 .select("*")
 
-.order("created_at", { ascending: false });
+.order("created_at", { ascending:false });
 
 
 
@@ -142,8 +138,6 @@ const container = document.getElementById("reviews-list");
 
 
 
-
-
 if(!container){
 
 console.error("❌ reviews-list missing");
@@ -162,9 +156,7 @@ container.innerHTML = "";
 
 
 
-
 const myToken = localStorage.getItem("review_token");
-
 
 
 
@@ -196,6 +188,19 @@ onclick="deleteReview('${review.id}')">
 }
 
 
+
+
+
+// CREATE AVATAR LETTER
+
+const avatarLetter = review.name
+.charAt(0)
+.toUpperCase();
+
+
+
+
+
 container.innerHTML += `
 
 
@@ -206,17 +211,45 @@ container.innerHTML += `
 
 
 
+
 <div class="review-header">
 
 
 
+
+
+<div class="user-info">
+
+
+
+<div class="avatar">
+
+${avatarLetter}
+
+</div>
+
+
+
+
+<div>
+
+
 <h3>
+
 ${review.name}
+
+<span class="verified">
+
+<i class="fa-solid fa-circle-check"></i>
+
+</span>
+
+
 </h3>
 
 
 
-<span>
+<span class="date">
 
 ${new Date(review.created_at).toLocaleDateString()}
 
@@ -225,6 +258,28 @@ ${new Date(review.created_at).toLocaleDateString()}
 
 
 </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+${deleteButton}
+
+
+
+
+
+</div>
+
+
+
 
 
 
@@ -249,10 +304,6 @@ ${review.review}
 </p>
 
 
-
-
-
-${deleteButton}
 
 
 
@@ -320,18 +371,13 @@ const { error } = await db
 
 if(error){
 
-
 console.error("❌ Delete Error:", error);
-
 
 alert(error.message);
 
-
 return;
 
-
 }
-
 
 
 
@@ -340,9 +386,7 @@ return;
 alert("Review deleted ✅");
 
 
-
 loadReviews();
-
 
 
 }
@@ -363,8 +407,6 @@ async function submitReview(){
 
 
 
-
-
 const name = document
 
 .getElementById("review-name")
@@ -377,14 +419,11 @@ const name = document
 
 
 
-
-
 const rating = document
 
 .getElementById("review-rating")
 
 .value;
-
 
 
 
@@ -405,9 +444,7 @@ const review = document
 
 
 
-
 if(!name || !review || !rating){
-
 
 
 alert("Please fill all details");
@@ -417,7 +454,6 @@ return;
 
 
 }
-
 
 
 
@@ -447,8 +483,6 @@ localStorage.setItem("review_token", token);
 
 
 
-
-
 const { error } = await db
 
 .from("reviews")
@@ -470,12 +504,10 @@ rating:Number(rating),
 review_token:token
 
 
-
 }
 
 
 ]);
-
 
 
 
@@ -501,10 +533,8 @@ return;
 
 
 
+
 alert("Review submitted successfully ✅");
-
-
-
 
 
 
@@ -523,12 +553,9 @@ ratingInput.value="";
 
 
 
-
-stars.forEach(star => {
-
+stars.forEach(star=>{
 
 star.classList.remove("active");
-
 
 });
 
@@ -538,8 +565,6 @@ star.classList.remove("active");
 
 
 loadReviews();
-
-
 
 
 }
@@ -568,21 +593,37 @@ document
 
 loadReviews();
 
+
+
+
+
+
+
+
+// ADMIN LOGIN
+
 document
+
 .getElementById("admin-btn")
+
 .addEventListener("click", function(){
+
 
 
 const password = prompt("Enter Admin Password");
 
 
+
 if(password === adminPassword){
+
 
 
 isAdmin = true;
 
 
+
 alert("Admin Mode Activated 👑");
+
 
 
 loadReviews();
@@ -597,6 +638,7 @@ alert("Wrong Password ❌");
 
 
 }
+
 
 
 });
