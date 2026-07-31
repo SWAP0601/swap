@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SWAP | Gallery</title>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/gallery.css">
+
+
+</head>
+
+
+<body>
+
+
+
+<!-- ADMIN BUTTON -->
+
+<div class="admin-btn" id="admin-btn">
+
+<i class="fa-solid fa-user-shield"></i>
+
+Admin
+
+</div>
+
+
+
+
+
+
+<div class="gallery-page">
+
+
+
+<a href="index.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back
+
+</a>
+
+
+
+
+
+<h1>
+
+My <span>Gallery.</span>
+
+</h1>
+
+
+
+
+
+<div class="line"></div>
+
+
+
+
+
+
+
+<!-- ADMIN UPLOAD -->
+
+<div id="admin-upload" class="admin-upload">
+
+
+<input 
+type="file" 
+id="image-file" 
+accept="image/*"
+>
+
+
+<button id="upload-btn">
+
+Upload Photo
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- GALLERY -->
+
+<div id="gallery-list">
+
+
+Loading photos...
+
+
+</div>
+
+<!-- IMAGE VIEWER -->
+
+<div id="image-viewer" class="image-viewer">
+
+
+<button id="close-viewer" class="close-viewer">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+
+<button id="prev-btn" class="nav-btn left-btn">
+
+<i class="fa-solid fa-chevron-left"></i>
+
+</button>
+
+
+
+<img id="viewer-image" src="">
+
+
+
+<button id="next-btn" class="nav-btn right-btn">
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="js/supabase.js"></script>
+
+
+<script src="js/gallery.js"></script>
+
+
+
+</body>
+
+
+</html>
