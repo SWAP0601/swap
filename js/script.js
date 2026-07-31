@@ -1,3 +1,55 @@
+const stars = document.querySelectorAll(".stars-input span");
+
+const ratingInput = document.getElementById("review-rating");
+
+
+
+stars.forEach(star => {
+
+
+star.addEventListener("click", function(){
+
+
+const value = this.dataset.value;
+
+
+
+ratingInput.value = value;
+
+
+
+stars.forEach(s => {
+
+
+if(s.dataset.value <= value){
+
+s.classList.add("active");
+
+}
+else{
+
+s.classList.remove("active");
+
+}
+
+
+});
+
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
 async function loadReviews() {
 
 
@@ -5,6 +57,7 @@ const { data, error } = await db
 .from("reviews")
 .select("*")
 .order("created_at", { ascending: false });
+
 
 
 
@@ -18,7 +71,10 @@ return;
 
 
 
+
+
 const container = document.getElementById("reviews-list");
+
 
 
 if(!container){
@@ -31,19 +87,27 @@ return;
 
 
 
+
+
 container.innerHTML = "";
+
+
 
 
 
 data.forEach(review => {
 
 
+
 container.innerHTML += `
+
 
 <div class="review-card">
 
 
+
 <div class="review-header">
+
 
 
 <h3>
@@ -51,9 +115,11 @@ ${review.name}
 </h3>
 
 
+
 <span>
 ${new Date(review.created_at).toLocaleDateString()}
 </span>
+
 
 
 </div>
@@ -80,11 +146,14 @@ ${review.review}
 
 </div>
 
+
+
 `;
 
 
 
 });
+
 
 
 }
@@ -102,19 +171,33 @@ async function submitReview(){
 
 
 const name = document
+
 .getElementById("review-name")
+
 .value
+
 .trim();
 
 
 
-const rating = document.querySelector('input[name="rating"]:checked')?.value;
+
+
+const rating = document
+
+.getElementById("review-rating")
+
+.value;
+
+
 
 
 
 const review = document
+
 .getElementById("review-message")
+
 .value
+
 .trim();
 
 
@@ -132,6 +215,7 @@ return;
 
 
 }
+
 
 
 
@@ -160,6 +244,7 @@ localStorage.setItem("review_token", token);
 
 
 
+
 const { error } = await db
 
 .from("reviews")
@@ -168,17 +253,27 @@ const { error } = await db
 
 {
 
+
 name:name,
+
 
 review:review,
 
+
 rating:Number(rating),
+
 
 review_token:token
 
+
+
 }
 
+
 ]);
+
+
+
 
 
 
@@ -211,6 +306,7 @@ alert("Review submitted successfully ✅");
 
 
 
+
 document.getElementById("review-name").value="";
 
 
@@ -218,9 +314,19 @@ document.getElementById("review-message").value="";
 
 
 
-document
-.querySelectorAll('input[name="rating"]')
-.forEach(star => star.checked = false);
+ratingInput.value="";
+
+
+
+stars.forEach(star => {
+
+
+star.classList.remove("active");
+
+
+});
+
+
 
 
 
@@ -230,7 +336,10 @@ loadReviews();
 
 
 
+
+
 }
+
 
 
 
@@ -244,6 +353,7 @@ document
 .getElementById("submit-review")
 
 .addEventListener("click", submitReview);
+
 
 
 

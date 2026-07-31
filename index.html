@@ -47,6 +47,7 @@ Abhi new ideas pe kam chalu he bhidu.
 </p>
 
 
+
 <div class="social">
 
 
@@ -106,10 +107,12 @@ Abhi new ideas pe kam chalu he bhidu.
 
 
 
+
 <div class="right">
 
 
 <!-- REVIEWS SECTION -->
+
 
 <div class="reviews-section">
 
@@ -120,7 +123,7 @@ Abhi new ideas pe kam chalu he bhidu.
 <div class="line"></div>
 
 
-<!-- Review Form -->
+
 
 <div class="review-form">
 
@@ -132,19 +135,44 @@ placeholder="Your Name"
 >
 
 
-<select id="review-rating">
 
-<option value="5">⭐⭐⭐⭐⭐</option>
 
-<option value="4">⭐⭐⭐⭐</option>
+<!-- STAR RATING -->
 
-<option value="3">⭐⭐⭐</option>
+<div class="rating-box">
 
-<option value="2">⭐⭐</option>
 
-<option value="1">⭐</option>
+<p>Your Rating</p>
 
-</select>
+
+<div class="stars-input">
+
+
+<span data-value="1">★</span>
+
+<span data-value="2">★</span>
+
+<span data-value="3">★</span>
+
+<span data-value="4">★</span>
+
+<span data-value="5">★</span>
+
+
+</div>
+
+
+
+<input 
+type="hidden" 
+id="review-rating"
+value=""
+>
+
+
+</div>
+
+
 
 
 
@@ -155,12 +183,19 @@ placeholder="Write your review..."
 
 
 
+
 <button id="submit-review">
+
 Submit Review
+
 </button>
 
 
+
 </div>
+
+
+
 
 
 
@@ -172,7 +207,10 @@ Loading reviews...
 
 
 
+
+
 </div>
+
 
 
 
@@ -206,6 +244,7 @@ Gallery
 
 
 
+
 <a class="card" href="#">
 
 
@@ -232,6 +271,8 @@ Social Media
 
 
 
+
+
 </div>
 
 
@@ -244,11 +285,14 @@ Social Media
 
 
 
+
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase.js"></script>
 
 <script src="js/script.js"></script>
+
 
 
 </body>
