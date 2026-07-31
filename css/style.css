@@ -242,3 +242,112 @@ body{
     }
 
 }
+
+/* =========================
+   REVIEWS SECTION
+========================= */
+
+
+.reviews-section{
+    width:100%;
+    margin-bottom:25px;
+}
+
+
+.reviews-section h2{
+    font-size:28px;
+}
+
+
+
+.review-form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+
+
+.review-form input,
+.review-form select,
+.review-form textarea{
+
+    width:100%;
+    padding:12px 15px;
+    border-radius:12px;
+    border:none;
+    outline:none;
+    font-family:Poppins;
+
+}
+
+
+
+.review-form textarea{
+
+    height:90px;
+    resize:none;
+
+}
+
+
+
+.review-form button{
+
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+
+}
+
+
+
+#reviews-list{
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+}
+
+
+
+.review-card{
+
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.15);
+
+}
+
+
+
+.review-card h3{
+
+    margin:0;
+    font-size:18px;
+
+}
+
+
+
+.review-card .stars{
+
+    margin:8px 0;
+    font-size:18px;
+
+}
+
+
+
+.review-card p{
+
+    margin:0;
+    line-height:1.5;
+
+}
