@@ -698,3 +698,50 @@ height:28px;
 
 
 }
+
+/* MOBILE PERFORMANCE OPTIMIZATION */
+
+@media(max-width:768px){
+
+
+.review-card,
+.card,
+.admin-btn{
+
+backdrop-filter:none;
+
+}
+
+
+
+.review-card{
+
+background:rgba(255,255,255,0.7);
+
+animation:none;
+
+}
+
+
+
+.card{
+
+transition:0.2s ease;
+
+}
+
+
+
+.social a{
+
+transition:0.2s ease;
+
+}
+
+
+}
+
+body{
+
+-webkit-tap-highlight-color:transparent;
+}
