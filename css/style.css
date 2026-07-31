@@ -415,3 +415,38 @@ font-size:20px;
 line-height:1.6;
 
 }
+
+/* STAR RATING */
+
+.rating-box p{
+    margin-bottom:10px;
+}
+
+
+.stars-input{
+
+    display:flex;
+    gap:6px;
+    flex-direction:row;
+
+}
+
+
+.stars-input span{
+
+    font-size:35px;
+    color:#777;
+    cursor:pointer;
+    transition:0.2s ease;
+
+}
+
+
+.stars-input span:hover,
+.stars-input span.hover,
+.stars-input span.active{
+
+    color:#ffd700;
+    transform:scale(1.15);
+
+}

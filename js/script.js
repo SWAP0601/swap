@@ -3,15 +3,64 @@ const stars = document.querySelectorAll(".stars-input span");
 const ratingInput = document.getElementById("review-rating");
 
 
+// STAR HOVER + CLICK SYSTEM
 
 stars.forEach(star => {
+
+
+star.addEventListener("mouseover", function(){
+
+
+const value = this.dataset.value;
+
+
+stars.forEach(s => {
+
+
+if(s.dataset.value <= value){
+
+s.classList.add("hover");
+
+}
+else{
+
+s.classList.remove("hover");
+
+}
+
+
+});
+
+
+});
+
+
+
+
+
+star.addEventListener("mouseout", function(){
+
+
+stars.forEach(s => {
+
+
+s.classList.remove("hover");
+
+
+});
+
+
+});
+
+
+
+
 
 
 star.addEventListener("click", function(){
 
 
 const value = this.dataset.value;
-
 
 
 ratingInput.value = value;
@@ -34,7 +83,6 @@ s.classList.remove("active");
 
 
 });
-
 
 
 });
@@ -61,6 +109,7 @@ const { data, error } = await db
 
 
 
+
 if(error){
 
 console.error("❌ Reviews Error:", error);
@@ -73,7 +122,10 @@ return;
 
 
 
+
 const container = document.getElementById("reviews-list");
+
+
 
 
 
@@ -95,6 +147,8 @@ container.innerHTML = "";
 
 
 
+
+
 data.forEach(review => {
 
 
@@ -102,7 +156,10 @@ data.forEach(review => {
 container.innerHTML += `
 
 
+
 <div class="review-card">
+
+
 
 
 
@@ -117,12 +174,16 @@ ${review.name}
 
 
 <span>
+
 ${new Date(review.created_at).toLocaleDateString()}
+
 </span>
 
 
 
 </div>
+
+
 
 
 
@@ -136,11 +197,15 @@ ${"⭐".repeat(review.rating)}
 
 
 
+
+
 <p>
 
 ${review.review}
 
 </p>
+
+
 
 
 
@@ -166,7 +231,13 @@ ${review.review}
 
 
 
+
+
+
+
 async function submitReview(){
+
+
 
 
 
@@ -182,11 +253,15 @@ const name = document
 
 
 
+
+
 const rating = document
 
 .getElementById("review-rating")
 
 .value;
+
+
 
 
 
@@ -205,11 +280,12 @@ const review = document
 
 
 
+
 if(!name || !review || !rating){
 
 
-alert("Please fill all details");
 
+alert("Please fill all details");
 
 return;
 
@@ -222,7 +298,11 @@ return;
 
 
 
+
+
 let token = localStorage.getItem("review_token");
+
+
 
 
 
@@ -280,7 +360,6 @@ review_token:token
 
 
 
-
 if(error){
 
 
@@ -300,7 +379,10 @@ return;
 
 
 
+
 alert("Review submitted successfully ✅");
+
+
 
 
 
@@ -315,6 +397,8 @@ document.getElementById("review-message").value="";
 
 
 ratingInput.value="";
+
+
 
 
 
@@ -337,7 +421,6 @@ loadReviews();
 
 
 
-
 }
 
 
@@ -353,6 +436,7 @@ document
 .getElementById("submit-review")
 
 .addEventListener("click", submitReview);
+
 
 
 
