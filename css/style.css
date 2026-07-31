@@ -745,3 +745,47 @@ body{
 
 -webkit-tap-highlight-color:transparent;
 }
+
+
+/* MY REVIEW HIGHLIGHT */
+
+
+.review-card.my-review{
+
+background:rgba(217,130,146,0.18);
+
+border:1px solid rgba(217,130,146,0.45);
+
+box-shadow:0 10px 30px rgba(217,130,146,0.15);
+
+}
+
+
+
+.review-card.my-review h3{
+
+color:#d98292;
+
+}
+
+
+
+.review-card.my-review::after{
+
+content:"Your Review";
+
+display:inline-block;
+
+margin-top:12px;
+
+padding:4px 12px;
+
+border-radius:20px;
+
+font-size:11px;
+
+background:#d98292;
+
+color:white;
+
+}

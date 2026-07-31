@@ -205,7 +205,7 @@ container.innerHTML += `
 
 
 
-<div class="review-card">
+<div class="review-card ${review.review_token === myToken ? 'my-review' : ''}">
 
 
 

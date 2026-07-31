@@ -263,19 +263,21 @@ align-items:stretch;
 
 /* ADMIN BUTTON */
 
+/* ADMIN BUTTON */
+
 .admin-btn{
 
 position:fixed;
 
 top:20px;
 
-left:25px;
+right:25px;
 
 padding:8px 15px;
 
 border-radius:20px;
 
-background:rgba(255,255,255,.5);
+background:rgba(255,255,255,.6);
 
 border:1px solid #e8b6c0;
 
@@ -299,24 +301,54 @@ transform:scale(1.08);
 
 }
 
-/* IMAGE VIEWER */
 
 
-.image-viewer{
+
+
+/* BACK HOME BUTTON */
+
+
+.back-home{
 
 position:fixed;
 
-inset:0;
+top:20px;
 
-background:rgba(0,0,0,.85);
+left:25px;
 
-display:none;
+padding:8px 18px;
+
+border-radius:20px;
+
+background:#d98292;
+
+color:white;
+
+text-decoration:none;
+
+font-size:14px;
+
+font-weight:500;
+
+display:flex;
 
 align-items:center;
 
-justify-content:center;
+gap:8px;
 
-z-index:2000;
+transition:.3s;
+
+z-index:1000;
+
+}
+
+
+
+.back-home:hover{
+
+transform:translateX(-5px);
+
+box-shadow:0 10px 25px rgba(217,130,146,.35);
 
 }
 
