@@ -1,3 +1,9 @@
+let isAdmin = false;
+
+
+const adminPassword = "SWAP0601";
+
+
 const stars = document.querySelectorAll(".stars-input span");
 
 const ratingInput = document.getElementById("review-rating");
@@ -173,7 +179,7 @@ let deleteButton = "";
 
 
 
-if(review.review_token === myToken){
+if(review.review_token === myToken || isAdmin){
 
 
 deleteButton = `
@@ -561,3 +567,36 @@ document
 
 
 loadReviews();
+
+document
+.getElementById("admin-btn")
+.addEventListener("click", function(){
+
+
+const password = prompt("Enter Admin Password");
+
+
+if(password === adminPassword){
+
+
+isAdmin = true;
+
+
+alert("Admin Mode Activated 👑");
+
+
+loadReviews();
+
+
+}
+
+else{
+
+
+alert("Wrong Password ❌");
+
+
+}
+
+
+});

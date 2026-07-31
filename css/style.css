@@ -461,3 +461,39 @@ line-height:1.6;
     cursor:pointer;
     float:right;
 }
+
+/* ADMIN BUTTON */
+
+.admin-btn{
+
+position:fixed;
+top:20px;
+left:25px;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.08);
+
+border:1px solid rgba(255,255,255,0.2);
+
+cursor:pointer;
+
+font-size:14px;
+
+backdrop-filter:blur(10px);
+
+transition:0.3s;
+
+z-index:1000;
+
+}
+
+
+
+.admin-btn:hover{
+
+transform:scale(1.08);
+
+}
